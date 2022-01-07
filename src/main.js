@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //   } else if(today < 10) {
   //     delNodes(day2Links);
   //   } else {
-  //     // do nothing
+  //     //* do nothing
   //   }
   // } else {
   //   delNodes(day1Links);
