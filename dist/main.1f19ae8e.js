@@ -900,20 +900,38 @@ document.addEventListener('DOMContentLoaded', function () {
   var now = new Date();
   var today = now.getDate();
   var thisMonth = now.getMonth();
-  console.log(thisMonth);
+  var thisYear = now.getFullYear();
 
-  if (thisMonth === 0) {
-    if (today < 9) {
+  if (thisYear === 2022) {
+    if (thisMonth !== 1) {
       delNodes(day1Links);
       delNodes(day2Links);
-    } else if (today < 10) {
-      delNodes(day2Links);
-    } else {// do nothing
+    } else if (thisMonth === 1) {
+      if (today < 5) {
+        delNodes(day1Links);
+        delNodes(day2Links);
+      } else if (today < 6) {
+        delNodes(day2Links);
+      }
     }
-  } else {
+  } else if (thisYear < 2022) {
     delNodes(day1Links);
     delNodes(day2Links);
-  }
+  } else {} // If it's not less or equal it must be greater
+  // if(thisMonth === 0){
+  //   if(today < 9){
+  //     delNodes(day1Links);
+  //     delNodes(day2Links);
+  //   } else if(today < 10) {
+  //     delNodes(day2Links);
+  //   } else {
+  //     //* do nothing
+  //   }
+  // } else {
+  //   delNodes(day1Links);
+  //   delNodes(day2Links);
+  // }
+
 
   var activities = document.querySelectorAll('.sched-item > .card-content');
 
@@ -961,7 +979,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "13278" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33458" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
