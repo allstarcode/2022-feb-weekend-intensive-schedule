@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const today = dayjs();
 
-  console.log(day1Date.valueOf());
   if (today.valueOf() <= day1Date.valueOf()) {
     delNodes(day1Links);
     delNodes(day2Links);
