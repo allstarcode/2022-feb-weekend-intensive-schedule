@@ -10,47 +10,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const day1Links = document.querySelectorAll('.day-1 > .card-action > a');
   const day2Links = document.querySelectorAll('.day-2 > .card-action > a');
-  // const day3Links = document.querySelectorAll('.day-3 > .card-action > a');
-  // const day4Links = document.querySelectorAll('.day-4 > .card-action > a');
-  // const day5Links = document.querySelectorAll('.day-5 > .card-action > a');
 
   let now = new Date();
-  let today = now.getDate();
-  let thisMonth = now.getMonth();
-  let thisYear = now.getFullYear();
 
-  if (thisYear === 2022) {
-    if (thisMonth !== 1) {
-      delNodes(day1Links);
-      delNodes(day2Links);
-    } else if (thisMonth === 1) {
-      if (today < 5) {
-        delNodes(day1Links);
-        delNodes(day2Links);
-      } else if (today < 6) {
-        delNodes(day2Links);
-      }
-    }
-  } else if (thisYear < 2022) {
+  let day1Date = dayjs(new Date(2022, 1, 5));
+  let day2Date = dayjs(new Date(2022, 1, 6));
+
+  const today = dayjs();
+
+  console.log(day1Date.valueOf());
+  if (today.valueOf() <= day1Date.valueOf()) {
     delNodes(day1Links);
-      delNodes(day2Links);
-  }  else {
-    // If it's not less or equal it must be greater
+    delNodes(day2Links);
+  } else if (today.valueOf() <= day2Date()) {
+    delNodes(day2Links);
   }
 
-  // if(thisMonth === 0){
-  //   if(today < 9){
-  //     delNodes(day1Links);
-  //     delNodes(day2Links);
-  //   } else if(today < 10) {
-  //     delNodes(day2Links);
-  //   } else {
-  //     //* do nothing
-  //   }
-  // } else {
-  //   delNodes(day1Links);
-  //   delNodes(day2Links);
-  // }
   const activities = document.querySelectorAll('.sched-item > .card-content');
 
   for (let act of activities) {
